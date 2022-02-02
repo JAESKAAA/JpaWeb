@@ -22,7 +22,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class Order {
+public class Order extends BaseHistory {
 
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
