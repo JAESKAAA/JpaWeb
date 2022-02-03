@@ -1,32 +1,9 @@
 package com.example.jpawebapp.repository;
 
 import com.example.jpawebapp.entity.Item;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class ItemRepository {
+public interface ItemRepository extends JpaRepository<Item, Long> {
 
-    @PersistenceContext
-    EntityManager em;
-
-    public void save(Item item) {
-        if (item.getId() == null) {
-            em.persist(item);
-        } else {
-            em.merge(item);
-        }
-    }
-
-    public Item findOne(Long id) {
-        return em.find(Item.class, id);
-    }
-
-    public List<Item> findAll() {
-        return em.createQuery("select i from Item i", Item.class)
-            .getResultList();
-    }
 
 }
