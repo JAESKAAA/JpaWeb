@@ -8,9 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Member extends BaseHistory {
 
@@ -25,4 +29,13 @@ public class Member extends BaseHistory {
 
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
+
+    public Member(String name) {
+        this.name = name;
+    }
+
+    public Member(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
 }

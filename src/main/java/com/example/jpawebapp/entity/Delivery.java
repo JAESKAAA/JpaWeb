@@ -28,4 +28,11 @@ public class Delivery {
     @Enumerated
     private DeliveryStatus status; // READY , COMP
 
+    public Delivery(Address address) {
+        this.address = address;
+    }
+
+    public Delivery() {
+
+    }
 }
